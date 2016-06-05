@@ -53,11 +53,11 @@ public class JsLanguageFileMappingCreator {
         Map<String, String> dateTimePickerLocaleFile = new LinkedHashMap<String, String>();
 
         // setup some variables to locate the js files
-        String componentRoot = "component://images/webapp";
-        String jqueryUiLocaleRelPath = "/images/jquery/ui/i18n/";
-        String dateJsLocaleRelPath = "/images/jquery/plugins/datejs/";
-        String validateRelPath = "/images/jquery/plugins/validate/localization/";
-        String dateTimePickerJsLocaleRelPath = "/images/jquery/plugins/datetimepicker/localization/";
+        String componentRoot = "component://assets/webapp";
+        String jqueryUiLocaleRelPath = "/assets/jquery/ui/i18n/";
+        String dateJsLocaleRelPath = "/assets/jquery/plugins/datejs/";
+        String validateRelPath = "/assets/jquery/plugins/validate/localization/";
+        String dateTimePickerJsLocaleRelPath = "/assets/jquery/plugins/datetimepicker/localization/";
         String jsFilePostFix = ".js";
         String dateJsLocalePrefix = "date-";
         String validateLocalePrefix = "messages_";

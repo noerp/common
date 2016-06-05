@@ -4229,7 +4229,7 @@
         <value xml:lang="ru">Первый</value>
         <value xml:lang="th">อันดับแรก</value>
         <value xml:lang="vi">Đầu tiên</value>
-        <value xml:lang="zh">第一个</value>
+        <value xml:lang="zh">第一页</value>
         <value xml:lang="zh_TW">最前</value>
     </property>
     <property key="CommonFollowingErrorsOccurred">
@@ -5743,7 +5743,7 @@
         <value xml:lang="ru">Последний</value>
         <value xml:lang="th">สุดท้าย</value>
         <value xml:lang="vi">Mới nhất</value>
-        <value xml:lang="zh">最后</value>
+        <value xml:lang="zh">最后一页</value>
         <value xml:lang="zh_TW">最後</value>
     </property>
     <property key="CommonLastSytemNotes">
@@ -7031,9 +7031,9 @@
         <value xml:lang="ru">Следующая</value>
         <value xml:lang="th">ต่อไป</value>
         <value xml:lang="vi">Tiếp theo</value>
-        <value xml:lang="zh">下一步</value>
-        <value xml:lang="zh_CN">后</value>
-        <value xml:lang="zh_TW">下一步</value>
+        <value xml:lang="zh">下一页</value>
+        <value xml:lang="zh_CN">下一页</value>
+        <value xml:lang="zh_TW">下一页</value>
     </property>
     <property key="CommonNo">
         <value xml:lang="ar">لا</value>
@@ -8738,7 +8738,7 @@
         <value xml:lang="ru">Предыдущая</value>
         <value xml:lang="th">ก่อนหน้านี้</value>
         <value xml:lang="vi">Trước</value>
-        <value xml:lang="zh">上一个</value>
+        <value xml:lang="zh">上一页</value>
         <value xml:lang="zh_CN">前</value>
         <value xml:lang="zh_TW">上一個</value>
     </property>
