@@ -143,4 +143,8 @@ under the License.
     <StatusValidChange statusId="KW_PENDING" statusIdTo="KW_APPROVED" transitionName="Review Approved"/>
     <StatusValidChange statusId="KW_PENDING" statusIdTo="KW_DISAPPROVED" transitionName="Review Disapproved"/>
 
+    <!-- NoERP Instance -->
+    <EnumerationType enumTypeId="JM_NOERP_INSTANCE" hasTable="N" description="NoERP Instance"/>
+    <Enumeration enumId="JM_NOERP_INS_0" enumTypeId="JM_NOERP_INSTANCE" enumCode="_NA_" sequenceId="00" description="ALL instance"/>
+    <Enumeration enumId="JM_NOERP_INS_1" enumTypeId="JM_NOERP_INSTANCE" enumCode="noerp1" sequenceId="01" description="NOERP instance 1"/>
 </entity-engine-xml>

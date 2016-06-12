@@ -60,7 +60,7 @@ under the License.
         </table>
         <input type="hidden" name="JavaScriptEnabled" value="N"/>
         <br />
-        <a href="<@noerpUrl>forgotPassword</@noerpUrl>">${uiLabelMap.CommonForgotYourPassword}?</a>
+        <a href="<@noerpUrl>forgotPassword_step1</@noerpUrl>">${uiLabelMap.CommonForgotYourPassword}?</a>
       </form>
     </div>
   </div>
