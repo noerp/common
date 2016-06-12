@@ -75,6 +75,14 @@ under the License.
                 <option key="N" description="${uiLabelMap.CommonN}"/>
             </drop-down>
         </field>
+        <field name="securityQuestion">
+          <drop-down allow-empty="true">
+              <entity-options entity-name="Enumeration" key-field-name="enumId" description="${description}">
+                 <entity-constraint name="enumTypeId" operator="equals" value="SQ_STANDARD" /> 
+              </entity-options>
+          </drop-down>
+        </field>
+        <field name="securityAnswer" title="${uiLabelMap.SecurityAnswer}"><text /></field>
         <field name="submitButton" title="${uiLabelMap.CommonSave}" widget-style="smallSubmit"><submit button-type="text-link"/></field>
         <field name="cancelLink" title=" " widget-style="smallSubmit">
             <hyperlink target="${cancelPage}" also-hidden="false" description="${uiLabelMap.CommonCancelDone}">
@@ -109,7 +117,7 @@ under the License.
     </form>
 
     <form name="CreateSecurityGroup" type="single" target="createSecurityGroup" default-map-name="securityGroup">
-        <field name="groupId" title="${uiLabelMap.CommonSecurityGroupId}" widget-style="required" tooltip="${uiLabelMap.CommonRequired}"><text size="20" maxlength="20"/></field>
+        <field name="groupId" title="${uiLabelMap.CommonSecurityGroupId}" required-field="true"><text size="20" maxlength="20"/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><text size="60" maxlength="250"/></field>
         <field name="submitButton" title="${uiLabelMap.CommonSave}"><submit button-type="button"/></field>
         <field name="cancelLink" title=" " widget-style="smallSubmit">
@@ -120,7 +128,7 @@ under the License.
     </form>
 
     <form name="EditSecurityGroup" type="single" target="updateSecurityGroup" default-map-name="securityGroup">
-        <field name="groupId" title="${uiLabelMap.CommonSecurityGroupId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
+        <field name="groupId" title="${uiLabelMap.CommonSecurityGroupId}"><display/></field>
         <field name="description" title="${uiLabelMap.CommonDescription}"><text size="60" maxlength="250"/></field>
         <field name="submitButton" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
