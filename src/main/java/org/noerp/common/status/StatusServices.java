@@ -30,7 +30,6 @@ import org.noerp.base.util.UtilValidate;
 
 import static org.noerp.base.util.UtilGenerics.checkList;
 
-import org.noerp.base.util.UtilMisc;
 import org.noerp.entity.Delegator;
 import org.noerp.entity.GenericEntityException;
 import org.noerp.entity.GenericValue;

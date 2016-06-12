@@ -34,7 +34,6 @@ import org.noerp.entity.Delegator;
 import org.noerp.entity.GenericEntityException;
 import org.noerp.entity.GenericValue;
 import org.noerp.entity.util.EntityQuery;
-import org.noerp.entity.util.EntityUtil;
 import org.noerp.service.DispatchContext;
 import org.noerp.service.ServiceUtil;
 

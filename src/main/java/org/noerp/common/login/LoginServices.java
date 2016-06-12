@@ -20,6 +20,7 @@
 package org.noerp.common.login;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,12 +48,12 @@ import org.noerp.entity.condition.EntityOperator;
 import org.noerp.entity.model.ModelEntity;
 import org.noerp.entity.transaction.GenericTransactionException;
 import org.noerp.entity.transaction.TransactionUtil;
-import org.noerp.entity.util.EntityFindOptions;
 import org.noerp.entity.util.EntityListIterator;
 import org.noerp.entity.util.EntityQuery;
 import org.noerp.entity.util.EntityUtilProperties;
 import org.noerp.security.Security;
 import org.noerp.service.DispatchContext;
+import org.noerp.service.GenericServiceException;
 import org.noerp.service.LocalDispatcher;
 import org.noerp.service.ModelService;
 import org.noerp.service.ServiceUtil;
@@ -93,7 +94,7 @@ public class LoginServices {
         }
 
         Map<String, Object> result =  new LinkedHashMap<String, Object>();
-        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.encrypt", delegator));
+        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security", "password.encrypt", delegator));
 
         // if isServiceAuth is not specified, default to not a service auth
         boolean isServiceAuth = context.get("isServiceAuth") != null && ((Boolean) context.get("isServiceAuth")).booleanValue();
@@ -113,10 +114,10 @@ public class LoginServices {
             errMsg = UtilProperties.getMessage(resource,"loginservices.password_missing", locale);
         } else {
 
-            if ("true".equalsIgnoreCase(EntityUtilProperties.getPropertyValue("security.properties", "username.lowercase", delegator))) {
+            if ("true".equalsIgnoreCase(EntityUtilProperties.getPropertyValue("security", "username.lowercase", delegator))) {
                 username = username.toLowerCase();
             }
-            if ("true".equalsIgnoreCase(EntityUtilProperties.getPropertyValue("security.properties", "password.lowercase", delegator))) {
+            if ("true".equalsIgnoreCase(EntityUtilProperties.getPropertyValue("security", "password.lowercase", delegator))) {
                 password = password.toLowerCase();
             }
 
@@ -156,7 +157,7 @@ public class LoginServices {
                 }
 
                 if (userLogin != null) {
-                    String ldmStr = EntityUtilProperties.getPropertyValue("security.properties", "login.disable.minutes", delegator);
+                    String ldmStr = EntityUtilProperties.getPropertyValue("security", "login.disable.minutes", delegator);
                     long loginDisableMinutes = 30;
 
                     try {
@@ -185,13 +186,14 @@ public class LoginServices {
                     boolean hasLoggedOut = userLogin.get("hasLoggedOut") != null ?
                             "Y".equalsIgnoreCase(userLogin.getString("hasLoggedOut")) : false;
 
-                    if (UtilValidate.isEmpty(userLogin.getString("enabled")) || "Y".equals(userLogin.getString("enabled")) ||
-                        (reEnableTime != null && reEnableTime.before(UtilDateTime.nowTimestamp())) || (isSystem)) {
+                    if ((UtilValidate.isEmpty(userLogin.getString("enabled")) || "Y".equals(userLogin.getString("enabled")) ||
+                            (reEnableTime != null && reEnableTime.before(UtilDateTime.nowTimestamp())) || (isSystem)) && UtilValidate.isEmpty(userLogin.getString("disabledBy"))) {
 
                         String successfulLogin;
 
                         if (!isSystem) {
                             userLogin.set("enabled", "Y");
+                            userLogin.set("disabledBy", null);
                         }
 
                         // attempt to authenticate with Authenticator class(es)
@@ -266,7 +268,7 @@ public class LoginServices {
                             userLogin.set("successiveFailedLogins", currentFailedLogins);
 
                             // if failed logins over amount in properties file, disable account
-                            String mflStr = EntityUtilProperties.getPropertyValue("security.properties", "max.failed.logins", delegator);
+                            String mflStr = EntityUtilProperties.getPropertyValue("security", "max.failed.logins", delegator);
                             long maxFailedLogins = 3;
                             try {
                                 maxFailedLogins = Long.parseLong(mflStr);
@@ -303,11 +305,11 @@ public class LoginServices {
                                     userLogin.store();
                                 }
 
-                                if ("true".equals(EntityUtilProperties.getPropertyValue("security.properties", "store.login.history", delegator))) {
+                                if ("true".equals(EntityUtilProperties.getPropertyValue("security", "store.login.history", delegator))) {
                                     boolean createHistory = true;
 
                                     // only save info on service auth if option set to true to do so
-                                    if (isServiceAuth && !"true".equals(EntityUtilProperties.getPropertyValue("security.properties", "store.login.history.on.service.auth", delegator))) {
+                                    if (isServiceAuth && !"true".equals(EntityUtilProperties.getPropertyValue("security", "store.login.history.on.service.auth", delegator))) {
                                         createHistory = false;
                                     }
 
@@ -321,7 +323,7 @@ public class LoginServices {
                                         }
 
                                         // ONLY save the password if it was incorrect
-                                        if ("N".equals(successfulLogin) && !"false".equals(EntityUtilProperties.getPropertyValue("security.properties", "store.login.history.incorrect.password", delegator))) {
+                                        if ("N".equals(successfulLogin) && !"false".equals(EntityUtilProperties.getPropertyValue("security", "store.login.history.incorrect.password", delegator))) {
                                             ulhCreateMap.put("passwordUsed", password);
                                         }
 
@@ -426,7 +428,7 @@ public class LoginServices {
     public static void createUserLoginPasswordHistory(Delegator delegator,String userLoginId, String currentPassword) throws GenericEntityException{
         int passwordChangeHistoryLimit = 0;
         try {
-            passwordChangeHistoryLimit = Integer.parseInt(EntityUtilProperties.getPropertyValue("security.properties", "password.change.history.limit", "0", delegator));
+            passwordChangeHistoryLimit = Integer.parseInt(EntityUtilProperties.getPropertyValue("security", "password.change.history.limit", "0", delegator));
         } catch (NumberFormatException nfe) {
             //No valid value is found so don't bother to save any password history
             passwordChangeHistoryLimit = 0;
@@ -461,7 +463,7 @@ public class LoginServices {
 
         // save this password in history
         GenericValue userLoginPwdHistToCreate = delegator.makeValue("UserLoginPasswordHistory", UtilMisc.toMap("userLoginId", userLoginId,"fromDate", nowTimestamp));
-        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.encrypt", delegator));
+        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security", "password.encrypt", delegator));
         userLoginPwdHistToCreate.set("currentPassword", useEncryption ? HashCrypt.cryptUTF8(getHashType(), null, currentPassword) : currentPassword);
         userLoginPwdHistToCreate.create();
     }
@@ -474,12 +476,13 @@ public class LoginServices {
     public static Map<String, Object> createUserLogin(DispatchContext ctx, Map<String, ?> context) {
         Map<String, Object> result =  new LinkedHashMap<String, Object>();
         Delegator delegator = ctx.getDelegator();
+        LocalDispatcher dispatcher = ctx.getDispatcher();
         Security security = ctx.getSecurity();
         GenericValue loggedInUserLogin = (GenericValue) context.get("userLogin");
         List<String> errorMessageList = new LinkedList<String>();
         Locale locale = (Locale) context.get("locale");
 
-        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.encrypt", delegator));
+        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security", "password.encrypt", delegator));
 
         String userLoginId = (String) context.get("userLoginId");
         String partyId = (String) context.get("partyId");
@@ -491,6 +494,9 @@ public class LoginServices {
         String externalAuthId = (String) context.get("externalAuthId");
         String errMsg = null;
 
+        String questionEnumId = (String) context.get("securityQuestion");
+        String securityAnswer = (String) context.get("securityAnswer");
+        
         // security: don't create a user login if the specified partyId (if not empty) already exists
         // unless the logged in user has permission to do so (same partyId or PARTYMGR_CREATE)
         if (UtilValidate.isNotEmpty(partyId)) {
@@ -561,6 +567,21 @@ public class LoginServices {
             return ServiceUtil.returnError(errMsg);
         }
 
+        try {
+            if (UtilValidate.isNotEmpty(securityAnswer)) {
+                Map<String, Object> resultMap = new HashMap<String, Object>(); 
+                resultMap = dispatcher.runSync("createUserLoginSecurityQuestion",
+                        UtilMisc.toMap("userLogin", loggedInUserLogin, "userLoginId", userLoginId, "questionEnumId", questionEnumId, "securityAnswer", securityAnswer));
+                if (ServiceUtil.isError(resultMap)) {
+                    errMsg = ServiceUtil.getErrorMessage(resultMap);
+                    errorMessageList.add(errMsg);
+                    Debug.logError(errMsg, module);
+                }
+            }
+        } catch (GenericServiceException e1) {
+            errMsg = UtilProperties.getMessage(resource,"loginservices.error_setting_security_question", locale);
+            Debug.logError(e1, errMsg, module);
+        }
         result.put(ModelService.RESPONSE_MESSAGE, ModelService.RESPOND_SUCCESS);
         return result;
     }
@@ -582,7 +603,7 @@ public class LoginServices {
             AuthHelper.loadAuthenticators(ctx.getDispatcher());
         }
 
-        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.encrypt", delegator));
+        boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security", "password.encrypt", delegator));
         boolean adminUser = false;
 
         String userLoginId = (String) context.get("userLoginId");
@@ -649,7 +670,7 @@ public class LoginServices {
             }
         }
 
-        if ("true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.lowercase", delegator))) {
+        if ("true".equals(EntityUtilProperties.getPropertyValue("security", "password.lowercase", delegator))) {
             currentPassword = currentPassword.toLowerCase();
             newPassword = newPassword.toLowerCase();
             newPasswordVerify = newPasswordVerify.toLowerCase();
@@ -709,12 +730,12 @@ public class LoginServices {
         List<String> errorMessageList = new LinkedList<String>();
         Locale locale = (Locale) context.get("locale");
 
-        //boolean useEncryption = "true".equals(UtilProperties.getPropertyValue("security.properties", "password.encrypt"));
+        //boolean useEncryption = "true".equals(UtilProperties.getPropertyValue("security", "password.encrypt"));
 
         String userLoginId = (String) context.get("userLoginId");
         String errMsg = null;
 
-        if ((userLoginId != null) && ("true".equals(EntityUtilProperties.getPropertyValue("security.properties", "username.lowercase", delegator)))) {
+        if ((userLoginId != null) && ("true".equals(EntityUtilProperties.getPropertyValue("security", "username.lowercase", delegator)))) {
             userLoginId = userLoginId.toLowerCase();
         }
 
@@ -875,6 +896,11 @@ public class LoginServices {
         // if was disabled and we are enabling it, clear disabledDateTime
         if (!wasEnabled && "Y".equals(context.get("enabled"))) {
             userLoginToUpdate.set("disabledDateTime", null);
+            userLoginToUpdate.set("disabledBy", null);
+        }
+
+        if ("N".equals(context.get("enabled"))) {
+            userLoginToUpdate.set("disabledBy", loggedInUserLogin.getString("userLoginId"));
         }
 
         try {
@@ -891,7 +917,7 @@ public class LoginServices {
 
     public static void checkNewPassword(GenericValue userLogin, String currentPassword, String newPassword, String newPasswordVerify, String passwordHint, List<String> errorMessageList, boolean ignoreCurrentPassword, Locale locale) {
         Delegator delegator = userLogin.getDelegator();
-    	boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security.properties", "password.encrypt", delegator));
+    	boolean useEncryption = "true".equals(EntityUtilProperties.getPropertyValue("security", "password.encrypt", delegator));
 
         String errMsg = null;
 
@@ -920,7 +946,7 @@ public class LoginServices {
 
         int passwordChangeHistoryLimit = 0;
         try {
-            passwordChangeHistoryLimit = Integer.parseInt(EntityUtilProperties.getPropertyValue("security.properties", "password.change.history.limit", "0", delegator));
+            passwordChangeHistoryLimit = Integer.parseInt(EntityUtilProperties.getPropertyValue("security", "password.change.history.limit", "0", delegator));
         } catch (NumberFormatException nfe) {
             //No valid value is found so don't bother to save any password history
             passwordChangeHistoryLimit = 0;
@@ -953,15 +979,15 @@ public class LoginServices {
         int minPasswordLength = 0;
 
         try {
-            minPasswordLength = Integer.parseInt(EntityUtilProperties.getPropertyValue("security.properties", "password.length.min", "0", delegator));
+            minPasswordLength = Integer.parseInt(EntityUtilProperties.getPropertyValue("security", "password.length.min", "0", delegator));
         } catch (NumberFormatException nfe) {
             minPasswordLength = 0;
         }
 
         if (newPassword != null) {
             // Matching password with pattern
-            String passwordPattern = EntityUtilProperties.getPropertyValue("security.properties", "security.login.password.pattern", "^.*(?=.{5,}).*$", delegator);
-            boolean usePasswordPattern = UtilProperties.getPropertyAsBoolean("security.properties", "security.login.password.pattern.enable", true);
+            String passwordPattern = EntityUtilProperties.getPropertyValue("security", "security.login.password.pattern", "^.*(?=.{5,}).*$", delegator);
+            boolean usePasswordPattern = UtilProperties.getPropertyAsBoolean("security", "security.login.password.pattern.enable", true);
             if (usePasswordPattern) {
                 Pattern pattern = Pattern.compile(passwordPattern);
                 Matcher matcher = pattern.matcher(newPassword);
@@ -969,7 +995,7 @@ public class LoginServices {
                 if (!matched) {
                     // This is a mix to handle the OOTB pattern which is only a fixed length
                     Map<String, String> messageMap = UtilMisc.toMap("minPasswordLength", Integer.toString(minPasswordLength));
-                    String passwordPatternMessage = EntityUtilProperties.getPropertyValue("security.properties",
+                    String passwordPatternMessage = EntityUtilProperties.getPropertyValue("security",
                             "security.login.password.pattern.description", "loginservices.password_must_be_least_characters_long", delegator);
                     errMsg = UtilProperties.getMessage(resource, passwordPatternMessage, messageMap, locale);
                     messageMap = UtilMisc.toMap("passwordPatternMessage", errMsg);
@@ -995,7 +1021,7 @@ public class LoginServices {
     }
 
     public static String getHashType() {
-        String hashType = UtilProperties.getPropertyValue("security.properties", "password.encrypt.hash.type");
+        String hashType = UtilProperties.getPropertyValue("security", "password.encrypt.hash.type");
 
         if (UtilValidate.isEmpty(hashType)) {
             Debug.logWarning("Password encrypt hash type is not specified in security.properties, use SHA", module);
@@ -1014,7 +1040,7 @@ public class LoginServices {
                 passwordMatches = oldPassword.equals(currentPassword);
             }
         }
-        if (!passwordMatches && "true".equals(UtilProperties.getPropertyValue("security.properties", "password.accept.encrypted.and.plain"))) {
+        if (!passwordMatches && "true".equals(UtilProperties.getPropertyValue("security", "password.accept.encrypted.and.plain"))) {
             passwordMatches = currentPassword.equals(oldPassword);
         }
         return passwordMatches;

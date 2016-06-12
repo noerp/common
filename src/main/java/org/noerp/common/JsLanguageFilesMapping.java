@@ -100,6 +100,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("de", "/assets/jquery/plugins/datejs/date-de-DE.js");
             localeFiles.put("de_AT", "/assets/jquery/plugins/datejs/date-de-AT.js");
             localeFiles.put("de_DE", "/assets/jquery/plugins/datejs/date-de-DE.js");
+            localeFiles.put("de_GR", "/assets/jquery/plugins/datejs/date-de-DE.js");
             localeFiles.put("de_LU", "/assets/jquery/plugins/datejs/date-de-LU.js");
             localeFiles.put("de_CH", "/assets/jquery/plugins/datejs/date-de-CH.js");
             localeFiles.put("el", "/assets/jquery/plugins/datejs/date-en-US.js");
@@ -107,6 +108,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("el_GR", "/assets/jquery/plugins/datejs/date-el-GR.js");
             localeFiles.put("iw", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("iw_IL", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("hi", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("hi_IN", "/assets/jquery/plugins/datejs/date-hi-IN.js");
             localeFiles.put("hu", "/assets/jquery/plugins/datejs/date-hu-HU.js");
             localeFiles.put("hu_HU", "/assets/jquery/plugins/datejs/date-hu-HU.js");
@@ -121,7 +123,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("it_CH", "/assets/jquery/plugins/datejs/date-it-CH.js");
             localeFiles.put("ja", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("ja_JP", "/assets/jquery/plugins/datejs/date-ja-JP.js");
-            localeFiles.put("ja_JP_JP", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("ja_JP_JP_#u-ca-japanese", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("ko", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("ko_KR", "/assets/jquery/plugins/datejs/date-ko-KR.js");
             localeFiles.put("lv", "/assets/jquery/plugins/datejs/date-lv-LV.js");
@@ -148,6 +150,10 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("ru_RU", "/assets/jquery/plugins/datejs/date-ru-RU.js");
             localeFiles.put("sr", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("sr_BA", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("sr__#Latn", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("sr_BA_#Latn", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("sr_ME_#Latn", "/assets/jquery/plugins/datejs/date-en-US.js");
+            localeFiles.put("sr_RS_#Latn", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("sr_ME", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("sr_CS", "/assets/jquery/plugins/datejs/date-en-US.js");
             localeFiles.put("sr_RS", "/assets/jquery/plugins/datejs/date-en-US.js");
@@ -161,6 +167,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("es_CL", "/assets/jquery/plugins/datejs/date-es-CL.js");
             localeFiles.put("es_CO", "/assets/jquery/plugins/datejs/date-es-CO.js");
             localeFiles.put("es_CR", "/assets/jquery/plugins/datejs/date-es-CR.js");
+            localeFiles.put("es_CU", "/assets/jquery/plugins/datejs/date-es-ES.js");
             localeFiles.put("es_DO", "/assets/jquery/plugins/datejs/date-es-DO.js");
             localeFiles.put("es_EC", "/assets/jquery/plugins/datejs/date-es-EC.js");
             localeFiles.put("es_SV", "/assets/jquery/plugins/datejs/date-es-SV.js");
@@ -180,7 +187,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("sv_SE", "/assets/jquery/plugins/datejs/date-sv-SE.js");
             localeFiles.put("th", "/assets/jquery/plugins/datejs/date-th-TH.js");
             localeFiles.put("th_TH", "/assets/jquery/plugins/datejs/date-th-TH.js");
-            localeFiles.put("th_TH_TH", "/assets/jquery/plugins/datejs/date-th-TH.js");
+            localeFiles.put("th_TH_TH_#u-nu-thai", "/assets/jquery/plugins/datejs/date-th-TH.js");
             localeFiles.put("tr", "/assets/jquery/plugins/datejs/date-tr-TR.js");
             localeFiles.put("tr_TR", "/assets/jquery/plugins/datejs/date-tr-TR.js");
             localeFiles.put("uk", "/assets/jquery/plugins/datejs/date-en-US.js");
@@ -268,6 +275,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("de", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
             localeFiles.put("de_AT", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
             localeFiles.put("de_DE", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
+            localeFiles.put("de_GR", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
             localeFiles.put("de_LU", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
             localeFiles.put("de_CH", "/assets/jquery/ui/i18n/jquery.ui.datepicker-de.js");
             localeFiles.put("el", "/assets/jquery/ui/i18n/jquery.ui.datepicker-el.js");
@@ -275,6 +283,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("el_GR", "/assets/jquery/ui/i18n/jquery.ui.datepicker-el.js");
             localeFiles.put("iw", "/assets/jquery/ui/i18n/jquery.ui.datepicker-en.js");
             localeFiles.put("iw_IL", "/assets/jquery/ui/i18n/jquery.ui.datepicker-en.js");
+            localeFiles.put("hi", "/assets/jquery/ui/i18n/jquery.ui.datepicker-hi.js");
             localeFiles.put("hi_IN", "/assets/jquery/ui/i18n/jquery.ui.datepicker-hi.js");
             localeFiles.put("hu", "/assets/jquery/ui/i18n/jquery.ui.datepicker-hu.js");
             localeFiles.put("hu_HU", "/assets/jquery/ui/i18n/jquery.ui.datepicker-hu.js");
@@ -316,6 +325,10 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("ru_RU", "/assets/jquery/ui/i18n/jquery.ui.datepicker-ru.js");
             localeFiles.put("sr", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
             localeFiles.put("sr_BA", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
+            localeFiles.put("sr__#Latn", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
+            localeFiles.put("sr_BA_#Latn", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
+            localeFiles.put("sr_ME_#Latn", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
+            localeFiles.put("sr_RS_#Latn", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
             localeFiles.put("sr_ME", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
             localeFiles.put("sr_CS", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
             localeFiles.put("sr_RS", "/assets/jquery/ui/i18n/jquery.ui.datepicker-sr.js");
@@ -329,6 +342,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("es_CL", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
             localeFiles.put("es_CO", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
             localeFiles.put("es_CR", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
+            localeFiles.put("es_CU", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
             localeFiles.put("es_DO", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
             localeFiles.put("es_EC", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
             localeFiles.put("es_SV", "/assets/jquery/ui/i18n/jquery.ui.datepicker-es.js");
@@ -436,6 +450,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("de", "/assets/jquery/plugins/validate/localization/messages_de.js");
             localeFiles.put("de_AT", "/assets/jquery/plugins/validate/localization/messages_de.js");
             localeFiles.put("de_DE", "/assets/jquery/plugins/validate/localization/messages_de.js");
+            localeFiles.put("de_GR", "/assets/jquery/plugins/validate/localization/messages_de.js");
             localeFiles.put("de_LU", "/assets/jquery/plugins/validate/localization/messages_de.js");
             localeFiles.put("de_CH", "/assets/jquery/plugins/validate/localization/messages_de.js");
             localeFiles.put("el", "/assets/jquery/plugins/validate/localization/messages_el.js");
@@ -443,6 +458,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("el_GR", "/assets/jquery/plugins/validate/localization/messages_el.js");
             localeFiles.put("iw", "/assets/jquery/plugins/validate/localization/messages_en.js");
             localeFiles.put("iw_IL", "/assets/jquery/plugins/validate/localization/messages_en.js");
+            localeFiles.put("hi", "/assets/jquery/plugins/validate/localization/messages_en.js");
             localeFiles.put("hi_IN", "/assets/jquery/plugins/validate/localization/messages_en.js");
             localeFiles.put("hu", "/assets/jquery/plugins/validate/localization/messages_hu.js");
             localeFiles.put("hu_HU", "/assets/jquery/plugins/validate/localization/messages_hu.js");
@@ -484,6 +500,10 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("ru_RU", "/assets/jquery/plugins/validate/localization/messages_ru.js");
             localeFiles.put("sr", "/assets/jquery/plugins/validate/localization/messages_sr.js");
             localeFiles.put("sr_BA", "/assets/jquery/plugins/validate/localization/messages_sr.js");
+            localeFiles.put("sr__#Latn", "/assets/jquery/plugins/validate/localization/messages_sr.js");
+            localeFiles.put("sr_BA_#Latn", "/assets/jquery/plugins/validate/localization/messages_sr.js");
+            localeFiles.put("sr_ME_#Latn", "/assets/jquery/plugins/validate/localization/messages_sr.js");
+            localeFiles.put("sr_RS_#Latn", "/assets/jquery/plugins/validate/localization/messages_sr.js");
             localeFiles.put("sr_ME", "/assets/jquery/plugins/validate/localization/messages_sr.js");
             localeFiles.put("sr_CS", "/assets/jquery/plugins/validate/localization/messages_sr.js");
             localeFiles.put("sr_RS", "/assets/jquery/plugins/validate/localization/messages_sr.js");
@@ -497,6 +517,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("es_CL", "/assets/jquery/plugins/validate/localization/messages_es.js");
             localeFiles.put("es_CO", "/assets/jquery/plugins/validate/localization/messages_es.js");
             localeFiles.put("es_CR", "/assets/jquery/plugins/validate/localization/messages_es.js");
+            localeFiles.put("es_CU", "/assets/jquery/plugins/validate/localization/messages_es.js");
             localeFiles.put("es_DO", "/assets/jquery/plugins/validate/localization/messages_es.js");
             localeFiles.put("es_EC", "/assets/jquery/plugins/validate/localization/messages_es.js");
             localeFiles.put("es_SV", "/assets/jquery/plugins/validate/localization/messages_es.js");
@@ -603,6 +624,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("de", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
             localeFiles.put("de_AT", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
             localeFiles.put("de_DE", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
+            localeFiles.put("de_GR", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
             localeFiles.put("de_LU", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
             localeFiles.put("de_CH", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-de.js");
             localeFiles.put("el", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-el.js");
@@ -610,6 +632,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("el_GR", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-el.js");
             localeFiles.put("iw", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("iw_IL", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
+            localeFiles.put("hi_IN", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("hi_IN", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("hu", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-hu.js");
             localeFiles.put("hu_HU", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-hu.js");
@@ -651,6 +674,10 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("ru_RU", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-ru.js");
             localeFiles.put("sr", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("sr_BA", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
+            localeFiles.put("sr__#Latn", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
+            localeFiles.put("sr_BA_#Latn", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
+            localeFiles.put("sr_ME", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
+            localeFiles.put("sr_RS_#Latn", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("sr_ME", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("sr_CS", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-en.js");
             localeFiles.put("sr_RS", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-sr-RS.js");
@@ -664,6 +691,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("es_CL", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
             localeFiles.put("es_CO", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
             localeFiles.put("es_CR", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
+            localeFiles.put("es_CU", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
             localeFiles.put("es_DO", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
             localeFiles.put("es_EC", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
             localeFiles.put("es_SV", "/assets/jquery/plugins/datetimepicker/localization/jquery-ui-timepicker-es.js");
