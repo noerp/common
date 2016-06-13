@@ -25,7 +25,7 @@ under the License.
         <call-simple-method method-name="checkOwnerShip"/>
         <entity-one entity-name="PortalPagePortlet" value-field="oldEntity"/>
         <set field="parameters.portalPageId" from-field="parameters.newPortalPageId"/>
-        <call-simple-method method-name="copyIfRequiredSystemPage" xml-resource="component://common/script/org/ofbiz/common/PortalPageMethods.xml"/>
+        <call-simple-method method-name="copyIfRequiredSystemPage" xml-resource="component://common/script/org/noerp/common/PortalPageMethods.xml"/>
         <set field="parameters.newPortalPageId" from-field="portalPageId"/>
         <make-value value-field="newEntity" entity-name="PortalPagePortlet"/>
         <set field="newEntity.portalPortletId" from-field="parameters.portalPortletId"/>
