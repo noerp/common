@@ -450,8 +450,8 @@
         <value xml:lang="ru">Адрес 1</value>
         <value xml:lang="th">ที่อยู่ที่ 1</value>
         <value xml:lang="vi">Địa chỉ</value>
-        <value xml:lang="zh">地址一</value>
-        <value xml:lang="zh_CN">地址 1</value>
+        <value xml:lang="zh">详细地址</value>
+        <value xml:lang="zh_CN">详细地址</value>
         <value xml:lang="zh_TW">位址 1</value>
     </property>
     <property key="CommonAddress2">
@@ -5338,10 +5338,12 @@
     </property>
     <property key="CommonImport">
         <value xml:lang="en">Import</value>
+        <value xml:lang="zh">导入</value>
         <value xml:lang="zh_TW">匯入</value>
     </property>
     <property key="CommonImportExport">
         <value xml:lang="en">Import/Export</value>
+        <value xml:lang="zh">导入/导出</value>
         <value xml:lang="zh_TW">匯入/匯出</value>
     </property>
     <property key="CommonIn">
