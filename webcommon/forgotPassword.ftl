@@ -36,7 +36,7 @@ under the License.
           </tr>
           <tr>
             <td colspan="2" align="center">
-              <a href='<@ofbizUrl>authview</@ofbizUrl>' class="buttontext">${uiLabelMap.CommonGoBack}</a>
+              <a href='<@noerpUrl>authview</@noerpUrl>' class="buttontext">${uiLabelMap.CommonGoBack}</a>
             </td>
           </tr>
         </table>

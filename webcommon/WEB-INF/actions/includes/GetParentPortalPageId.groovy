@@ -24,6 +24,7 @@ import org.noerp.entity.util.EntityUtil;
 
 // executes only on startup when only the basic parameters.portalPageId (from commonscreens.xml) is available
 if (userLogin && parameters.parentPortalPageId && !parameters.portalPageId) {
+	
     // look for system page according the current securitygroup
     //get the security group
     condSec = EntityCondition.makeCondition([
@@ -32,7 +33,8 @@ if (userLogin && parameters.parentPortalPageId && !parameters.portalPageId) {
             EntityCondition.makeCondition("userLoginId", EntityOperator.EQUALS, userLogin.userLoginId)
             ],EntityOperator.AND);
     portalMainPages = EntityUtil.filterByDate(delegator.findList("PortalPageAndUserLogin", condSec, null, null, null, false));
-    if (!portalMainPages) { // look for a null securityGroup if not found
+    
+	if (!portalMainPages) { // look for a null securityGroup if not found
         condSec = EntityCondition.makeCondition([
             EntityCondition.makeCondition("securityGroupId", EntityOperator.EQUALS, null),
             EntityCondition.makeCondition("parentPortalPageId", EntityOperator.EQUALS, null),
@@ -40,6 +42,7 @@ if (userLogin && parameters.parentPortalPageId && !parameters.portalPageId) {
             ],EntityOperator.AND);
         portalMainPages = delegator.findList("PortalPage", condSec, null, null, null, false);
     }
+	
     if (portalMainPages) {
         portalPageId = portalMainPages.get(0).portalPageId;
         // check if overridden with a privat page
