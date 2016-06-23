@@ -14741,6 +14741,10 @@
         <value xml:lang="zh">项目</value>
         <value xml:lang="zh_TW">專案</value>
     </property>
+    <property key="PrimerMgr">
+        <value xml:lang="en">Primer Manage</value>
+        <value xml:lang="zh">引物管理</value>
+    </property>
     <property key="SFA">
         <value xml:lang="ar">ميكنة فريق المبيعات</value>
         <value xml:lang="cs">SFA</value>
