@@ -11166,6 +11166,10 @@
         <value xml:lang="zh">已分配</value>
         <value xml:lang="zh_TW">指派</value>
     </property>
+    <property key="StatusItem.description.PAS_READY">
+        <value xml:lang="en">Ready to do</value>
+        <value xml:lang="zh">准备进行</value>
+    </property>
     <property key="StatusItem.description.PAS_COMPLETED">
         <value xml:lang="de">Abgeschlossen</value>
         <value xml:lang="en">Completed</value>
