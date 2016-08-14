@@ -26,6 +26,7 @@ under the License.
     <handler name="java" type="request" class="org.noerp.webapp.event.JavaEventHandler"/>
     <handler name="soap" type="request" class="org.noerp.webapp.event.SOAPEventHandler"/>
     <handler name="xmlrpc" type="request" class="org.noerp.webapp.event.XmlRpcEventHandler"/>
+    <handler name="jsonrpc" type="request" class="org.noerp.webapp.event.JsonRpcEventHandler"/>
     <handler name="service" type="request" class="org.noerp.webapp.event.ServiceEventHandler"/>
     <handler name="service-multi" type="request" class="org.noerp.webapp.event.ServiceMultiEventHandler"/>
     <handler name="service-stream" type="request" class="org.noerp.webapp.event.ServiceStreamHandler"/>
